@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   complex.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 15:00:45 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/17 00:01:42 by ktieu            ###   ########.fr       */
+/*   Created: 2024/06/15 12:56:23 by ktieu             #+#    #+#             */
+/*   Updated: 2024/06/17 00:02:18 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#ifndef COMPLEX_H
+# define COMPLEX_H
 
-int	main(int ac, char **av)
+typedef struct s_complex
 {
-	t_fractol	fractol;
+	long double	real;
+	long double	imaginary;
+}	t_complex_num;
 
-	ft_fractol_init(ac, av, &fractol);
-	mlx_key_hook(fractol.window, &ft_keyboard_hook, &fractol);
-	mlx_loop_hook(fractol.mlx, ft_loop_hook, &fractol);
-	mlx_loop(fractol.mlx);
-	ft_close(&fractol, EXIT_SUCCESS);
-}
+t_complex_num	ft_complex_sum(t_complex_num c1, t_complex_num c2);
+
+t_complex_num	ft_complex_subtract(t_complex_num c1, t_complex_num c2);
+
+t_complex_num	ft_complex_multiply(t_complex_num c1, t_complex_num c2);
+
+#endif

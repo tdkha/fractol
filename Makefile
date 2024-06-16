@@ -6,28 +6,46 @@
 #    By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/14 19:34:49 by ktieu             #+#    #+#              #
-#    Updated: 2024/06/14 19:35:04 by ktieu            ###   ########.fr        #
+#    Updated: 2024/06/16 23:16:40 by ktieu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fractol
+NAME		=	fractol
 
-CC = cc
+CC			=	cc
 
-CFLAGS =  -Ofast -flto -I ./includes
-MLX = srcs/mlx_linux
-LIBFT = srcs/libft
+CFLAGS		=	-Ofast -flto -I ./includes
+MLX			=	srcs/mlx_linux
+LIBFT		=	srcs/libft
 
-LIBS = ${MLX}/libmlx_Linux.a -ldl -lglfw -pthread -lm \
-       ${LIBFT}/libft.a
+LIBS		= 	${MLX}/libmlx_Linux.a -ldl -lglfw -pthread -lm \
+			${LIBFT}/libft.a
 
-SRCS = srcs/main.c
+SRCS		=	./srcs/main.c \
+				./srcs/ft_init.c \
+				./srcs/ft_close.c  \
+				./srcs/ft_frand.c  \
+				./srcs/ft_complex.c \
+				./srcs/ft_display.c \
+				./srcs/ft_set_mandelbrot.c \
+				./srcs/ft_hooks.c \
+				./srcs/ft_color.c \
+				./srcs/ft_mlx_pixel_put.c
 
-B_SRCS = srcs/main.c
+B_SRCS		=	./srcs/main.c \
+				./srcs/ft_init.c \
+				./srcs/ft_close.c  \
+				./srcs/ft_frand.c  \
+				./srcs/ft_complex.c \
+				./srcs/ft_display.c \
+				./srcs/ft_set_mandelbrot.c \
+				./srcs/ft_hooks.c \
+				./srcs/ft_color.c \
+				./srcs/ft_mlx_pixel_put.c
 
-OBJDIR = obj
-OFILES = $(addprefix $(OBJDIR)/, $(notdir ${SRCS:.c=.o}))
-B_OFILES = $(addprefix $(OBJDIR)/, $(notdir ${B_SRCS:.c=.o}))
+OBJDIR		=	obj
+OFILES		=	$(addprefix $(OBJDIR)/, $(notdir ${SRCS:.c=.o}))
+B_OFILES	=	$(addprefix $(OBJDIR)/, $(notdir ${B_SRCS:.c=.o}))
 
 all: mandatory
 
@@ -42,7 +60,7 @@ $(OBJDIR)/%.o: srcs/%.c
 $(NAME): $(OFILES)
 	${MAKE} -C ${LIBFT}
 	${MAKE} -C ${MLX}
-	$(CC) $(OFILES) -L${MLX} -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OFILES) -L${LIBFT} -lft -L${MLX} -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
 	@touch .mandatory
 	@rm -f .bonus
 

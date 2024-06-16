@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_mlx_pixel_put.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 15:00:45 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/17 00:01:42 by ktieu            ###   ########.fr       */
+/*   Created: 2024/06/16 20:11:34 by ktieu             #+#    #+#             */
+/*   Updated: 2024/06/16 23:53:46 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int	main(int ac, char **av)
+void	ft_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
-	t_fractol	fractol;
+	char	*dst;
 
-	ft_fractol_init(ac, av, &fractol);
-	mlx_key_hook(fractol.window, &ft_keyboard_hook, &fractol);
-	mlx_loop_hook(fractol.mlx, ft_loop_hook, &fractol);
-	mlx_loop(fractol.mlx);
-	ft_close(&fractol, EXIT_SUCCESS);
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }

@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_frand.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 15:00:45 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/17 00:01:42 by ktieu            ###   ########.fr       */
+/*   Created: 2024/06/15 11:44:57 by ktieu             #+#    #+#             */
+/*   Updated: 2024/06/16 23:52:19 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int	main(int ac, char **av)
+float	ft_frand(void)
 {
-	t_fractol	fractol;
+	static unsigned long	next;
 
-	ft_fractol_init(ac, av, &fractol);
-	mlx_key_hook(fractol.window, &ft_keyboard_hook, &fractol);
-	mlx_loop_hook(fractol.mlx, ft_loop_hook, &fractol);
-	mlx_loop(fractol.mlx);
-	ft_close(&fractol, EXIT_SUCCESS);
+	next = next * 1103515245 + 12345;
+	return ((float)((next / 65536) % 32767) / (float)32767);
 }
+
+/* RAND_MAX assumed to be 32767. */

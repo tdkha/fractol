@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_set_julia.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 15:00:45 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/17 00:01:42 by ktieu            ###   ########.fr       */
+/*   Created: 2024/06/15 12:53:57 by ktieu             #+#    #+#             */
+/*   Updated: 2024/06/15 12:54:39 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int	main(int ac, char **av)
+int	ft_set_julia(t_fractol *fractol, int row, int col)
 {
-	t_fractol	fractol;
-
-	ft_fractol_init(ac, av, &fractol);
-	mlx_key_hook(fractol.window, &ft_keyboard_hook, &fractol);
-	mlx_loop_hook(fractol.mlx, ft_loop_hook, &fractol);
-	mlx_loop(fractol.mlx);
-	ft_close(&fractol, EXIT_SUCCESS);
+	return (0);
 }

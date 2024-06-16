@@ -6,7 +6,7 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:26:00 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/14 16:53:31 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/16 23:49:55 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 long double	float_section_handler(char **str)
 {
-	long double res;
+	long double	res;
 	size_t		len;
 
 	res = 0;
-	while(**str && **str != '.')
+	while (**str && **str != '.')
 		(*str)++;
 	if (**str == '.')
 	{
