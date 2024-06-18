@@ -6,7 +6,7 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 18:18:27 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/16 23:52:37 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/17 23:16:56 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,13 @@ int	ft_keyboard_hook(int keycode, void *void_struct)
 		return (0);
 	}
 	ft_arrow_keyboard_handler(keycode, fractol);
+}
+
+void	ft_mouse_scroll_hook(double mouse_x, double mouse_y, void *void_struct)
+{
+	t_fractol	*fractol;
+	double		scaled_x;
+	double		scaled_y;
+
+	fractol = (t_fractol *) void_struct;
 }
