@@ -7,6 +7,13 @@ NORM="norminette"
 
 printf	"\n+------------------------------------------+\n"
 printf	"|                                          |\n"
+printf	"|   Checking norminette for ${GREEN}libft${NC}   |\n"
+printf	"|                                          |\n"
+printf	"+------------------------------------------+\n"
+$NORM ./srcs/libft/
+
+printf	"\n+------------------------------------------+\n"
+printf	"|                                          |\n"
 printf	"|   Checking norminette for ${GREEN}header files${NC}   |\n"
 printf	"|                                          |\n"
 printf	"+------------------------------------------+\n"

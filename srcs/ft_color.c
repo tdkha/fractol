@@ -6,7 +6,7 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 18:26:02 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/16 23:47:53 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/23 16:31:25 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 int	create_trgb(int t, int r, int g, int b)
 {
 	return (t << 24 | r << 16 | g << 8 | b);
+}
+
+inline void	ft_random_colors(t_fractol *fractol)
+{
+	fractol->red = ft_frand();
+	fractol->blue = ft_frand();
+	fractol->green = ft_frand();
 }
 
 int	ft_rand_color_map(int iteration, t_fractol *fractol)

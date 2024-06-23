@@ -6,7 +6,7 @@
 #    By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/14 19:34:49 by ktieu             #+#    #+#              #
-#    Updated: 2024/06/16 23:16:40 by ktieu            ###   ########.fr        #
+#    Updated: 2024/06/23 16:12:27 by ktieu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,19 +53,21 @@ mandatory: $(NAME)
 
 bonus: .bonus
 
+.libft:	
+	@touch .libft
+	${MAKE} -C ${LIBFT}
+
 $(OBJDIR)/%.o: srcs/%.c
 	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OFILES)
-	${MAKE} -C ${LIBFT}
+$(NAME): $(OFILES) .libft
 	${MAKE} -C ${MLX}
 	$(CC) $(OFILES) -L${LIBFT} -lft -L${MLX} -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
 	@touch .mandatory
 	@rm -f .bonus
 
-.bonus: $(B_OFILES)
-	${MAKE} -C ${LIBFT}
+.bonus: $(B_OFILES) .libft
 	${MAKE} -C ${MLX}
 	$(CC) $(CFLAGS) -o $(NAME) $(B_OFILES) $(LIBS) -flto
 	@touch .bonus
@@ -74,12 +76,11 @@ $(NAME): $(OFILES)
 clean:
 	${MAKE} -C ${LIBFT} clean
 	rm -rf ${OBJDIR}
-	@rm -f .bonus .mandatory
+	@rm -f .bonus .mandatory .libft
 
 fclean: clean
 	${MAKE} -C ${LIBFT} fclean
 	rm -rf ${NAME}
-	@rm -f .bonus .mandatory
 
 re: fclean all
 
