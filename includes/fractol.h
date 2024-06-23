@@ -6,7 +6,7 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:21:39 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/23 16:47:53 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/23 17:09:02 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ long double	ft_pixel_to_coord(
 				long double value,
 				t_fractol *fractol,
 				int is_x_axis);
+				
 /*+------------------------------------------------------------+*/
 //	FRACTOL STRUCT FUNCTIONS
 /*+------------------------------------------------------------+*/
@@ -115,6 +116,5 @@ int			ft_mouse_hook(
 /*+------------------------------------------------------------+*/
 
 int			ft_set_mandelbrot(t_fractol *fractol, int row, int col, int iter);
-// int		ft_mandelbrot(t_fractol *stc, int row, int col);
 
 #endif
