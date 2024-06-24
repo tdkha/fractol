@@ -6,7 +6,7 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 23:16:13 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/23 16:45:59 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/23 21:43:08 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@ static void	ft_guidance(void)
 
 static void	ft_define_set_type(int ac, char **av, t_fractol *fractol)
 {
-	if (ac == 4 && ft_strcmp(av[1], "Julia"))
+	if (ac == 4 && ft_strcmp(av[1], "Julia") == 0)
 	{
 		fractol->type = JULIA;
+		fractol->julia_values.real = ft_atold(av[2]);
+		fractol->julia_values.imaginary = ft_atold(av[3]);
+
 	}
 	else if (ac == 2 && ft_strcmp(av[1], "Mandelbrot") == 0)
 	{

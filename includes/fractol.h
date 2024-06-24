@@ -6,7 +6,7 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:21:39 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/23 17:10:39 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/23 21:26:27 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,6 @@ int			ft_mouse_hook(
 /*+------------------------------------------------------------+*/
 
 int			ft_set_mandelbrot(t_fractol *fractol, int row, int col, int iter);
+int			ft_set_julia(t_fractol *fractol, int row, int col);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:56:23 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/17 00:02:18 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/23 21:24:49 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ t_complex_num	ft_complex_sum(t_complex_num c1, t_complex_num c2);
 t_complex_num	ft_complex_subtract(t_complex_num c1, t_complex_num c2);
 
 t_complex_num	ft_complex_multiply(t_complex_num c1, t_complex_num c2);
+
+t_complex_num	ft_complex_squared(t_complex_num num);
 
 #endif

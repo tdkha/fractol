@@ -6,7 +6,7 @@
 #    By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/14 19:34:49 by ktieu             #+#    #+#              #
-#    Updated: 2024/06/23 16:12:27 by ktieu            ###   ########.fr        #
+#    Updated: 2024/06/23 21:26:54 by ktieu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,11 @@ SRCS		=	./srcs/main.c \
 				./srcs/ft_complex.c \
 				./srcs/ft_display.c \
 				./srcs/ft_set_mandelbrot.c \
+				./srcs/ft_set_julia.c \
 				./srcs/ft_hooks.c \
 				./srcs/ft_color.c \
-				./srcs/ft_mlx_pixel_put.c
+				./srcs/ft_mlx_pixel_put.c \
+				./srcs/ft_pixel_to_coord.c
 
 B_SRCS		=	./srcs/main.c \
 				./srcs/ft_init.c \
@@ -39,9 +41,11 @@ B_SRCS		=	./srcs/main.c \
 				./srcs/ft_complex.c \
 				./srcs/ft_display.c \
 				./srcs/ft_set_mandelbrot.c \
+				./srcs/ft_set_julia.c \
 				./srcs/ft_hooks.c \
 				./srcs/ft_color.c \
-				./srcs/ft_mlx_pixel_put.c
+				./srcs/ft_mlx_pixel_put.c \
+				./srcs/ft_pixel_to_coord.c
 
 OBJDIR		=	obj
 OFILES		=	$(addprefix $(OBJDIR)/, $(notdir ${SRCS:.c=.o}))
