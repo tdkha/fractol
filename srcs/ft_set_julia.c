@@ -6,7 +6,7 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:53:57 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/23 21:45:43 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/24 10:18:03 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_set_julia(t_fractol *fractol, int row, int col)
 	while (i < fractol->iteration)
 	{
 		z = ft_complex_sum(ft_complex_squared(z), c);
-		if (((z.real * z.real) + (z.imaginary *z.imaginary)) > 4)
+		if (((z.real * z.real) + (z.imaginary * z.imaginary)) > 4)
 		{
 			break ;
 		}

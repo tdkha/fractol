@@ -6,19 +6,19 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:54:06 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/23 21:45:13 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/24 10:17:17 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-static inline int ft_get_set(t_fractol *fractol, int row, int col)
+static inline int	ft_get_set(t_fractol *fractol, int row, int col)
 {
 	if (fractol->type == MANDELBROT)
 	{
 		return (ft_set_mandelbrot(fractol, row, col, 0));
 	}
-	else if (fractol->type ==JULIA)
+	else if (fractol->type == JULIA)
 	{
 		return (ft_set_julia(fractol, row, col));
 	}
