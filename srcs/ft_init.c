@@ -44,6 +44,6 @@ void	ft_fractol_init(int ac, char **av, t_fractol *fractol)
 	fractol->max_y = 2;
 	fractol->iteration = 100;
 	fractol->zoom_ratio = 1;
-	fractol->change_rate = 0.2;
+	fractol->change_rate = 0.1;
 	ft_random_colors(fractol);
 }

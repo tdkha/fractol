@@ -39,12 +39,14 @@ inline t_complex_num	ft_complex_multiply(t_complex_num c1, t_complex_num c2)
 	return (res);
 }
 
-
-inline t_complex_num	ft_complex_divide(t_complex_num a, t_complex_num b)
+inline t_complex_num	ft_complex_divide(t_complex_num c1, t_complex_num c2)
 {
-	t_complex_num result;
-	long double denom = b.real * b.real + b.imaginary * b.imaginary;
-	result.real = (a.real * b.real + a.imaginary * b.imaginary) / denom;
-	result.imaginary = (a.imaginary * b.real - a.real * b.imaginary) / denom;
-	return result;
+	t_complex_num	result;
+	long double		denom;
+
+	denom = c2.real * c2.real + c2.imaginary * c2.imaginary;
+	result.real = (c1.real * c2.real + c1.imaginary * c2.imaginary) / denom;
+	result.imaginary = (c1.imaginary * c2.real
+			- c1.real * c2.imaginary) / denom;
+	return (result);
 }

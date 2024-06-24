@@ -72,14 +72,14 @@ $(OBJDIR)/%.o: srcs/%.c
 
 $(NAME): $(OFILES) .libft
 	${MAKE} -C ${MLX}
-	$(CC) $(OFILES) -L${LIBFT} -lft -L${MLX} -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(CFLAGS) $(OFILES) -L${LIBFT} -lft -L${MLX} -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
 	@touch .mandatory
 	@rm -f .bonus
 
 .bonus: $(B_OFILES) .libft
 	@touch .bonus
 	${MAKE} -C ${MLX}
-	$(CC) $(B_OFILES) -L${LIBFT} -lft -L${MLX} -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(CFLAGS) $(B_OFILES) -L${LIBFT} -lft -L${MLX} -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
 	
 	@rm -f .mandatory
 

@@ -22,22 +22,22 @@ static inline void	ft_arrow_keyboard_handler(int keycode, t_fractol *fractol)
 	long double	change_rate;
 
 	change_rate = fractol->change_rate;
-	if (keycode == KEY_DOWN || keycode == KEY_S)
+	if (keycode == KEY_UP || keycode == KEY_W)
 	{
 		fractol->min_y += (fractol->zoom_ratio * change_rate);
 		fractol->max_y += (fractol->zoom_ratio * change_rate);
 	}
-	else if (keycode == KEY_UP || keycode == KEY_W)
+	else if (keycode == KEY_DOWN || keycode == KEY_S)
 	{
 		fractol->min_y -= (fractol->zoom_ratio * change_rate);
 		fractol->max_y -= (fractol->zoom_ratio * change_rate);
 	}
-	else if (keycode == KEY_RIGHT || keycode == KEY_D)
+	else if (keycode == KEY_LEFT || keycode == KEY_A)
 	{
 		fractol->min_x += (fractol->zoom_ratio * change_rate);
 		fractol->max_x += (fractol->zoom_ratio * change_rate);
 	}
-	else if (keycode == KEY_LEFT || keycode == KEY_A)
+	else if (keycode == KEY_RIGHT || keycode == KEY_D)
 	{
 		fractol->min_x -= (fractol->zoom_ratio * change_rate);
 		fractol->max_x -= (fractol->zoom_ratio * change_rate);
@@ -91,6 +91,7 @@ static inline void	ft_mouse_scroll_handler(
 		zoom_factor = 1 + fractol->change_rate;
 	else if (keycode == MOUSE_SCROLL_UP)
 		zoom_factor = 1 - fractol->change_rate;
+	fractol->zoom_ratio = zoom_factor;
 	new_width = (fractol->max_x - fractol->min_x) * zoom_factor;
 	new_height = (fractol->max_y - fractol->min_y) * zoom_factor;
 	fractol->min_x = s_mouse_x - (s_mouse_x - fractol->min_x) * zoom_factor;

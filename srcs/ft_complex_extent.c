@@ -12,7 +12,9 @@
 
 #include "../includes/complex.h"
 
-inline t_complex_num	ft_complex_multiply_constant(long double constant, t_complex_num num)
+inline t_complex_num	ft_complex_multiply_constant(
+	long double constant,
+	t_complex_num num)
 {
 	t_complex_num	res;
 
@@ -34,11 +36,9 @@ inline t_complex_num	ft_complex_cube_minus(t_complex_num num)
 {
 	t_complex_num	res;
 
-	res.real = 
-		(num.real * num.real * num.real)
+	res.real = (num.real * num.real * num.real)
 		- (3 * (num.real * num.imaginary * num.imaginary));
-	res.imaginary = 
-		(-1) *(num.imaginary * num.imaginary * num.imaginary)
+	res.imaginary = -(num.imaginary * num.imaginary * num.imaginary)
 		+ (3 * (num.real * num.real * num.imaginary));
 	return (res);
 }

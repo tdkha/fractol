@@ -25,7 +25,8 @@ t_complex_num	ft_complex_subtract(t_complex_num c1, t_complex_num c2);
 
 t_complex_num	ft_complex_multiply(t_complex_num c1, t_complex_num c2);
 
-t_complex_num	ft_complex_multiply_constant(long double constant, t_complex_num num);
+t_complex_num	ft_complex_multiply_constant(
+					long double constant, t_complex_num num);
 
 t_complex_num	ft_complex_divide(t_complex_num a, t_complex_num b);
 

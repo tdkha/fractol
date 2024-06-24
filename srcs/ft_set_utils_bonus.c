@@ -37,7 +37,7 @@ inline void	ft_guidance(void)
 	exit(1);
 }
 
-inline  void	ft_define_set_type(int ac, char **av, t_fractol *fractol)
+inline void	ft_define_set_type(int ac, char **av, t_fractol *fractol)
 {
 	if (ac == 4 && ft_strcmp(av[1], "Julia") == 0)
 	{

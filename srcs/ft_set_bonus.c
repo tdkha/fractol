@@ -25,7 +25,7 @@ int	ft_set_newton(t_fractol *fractol, int row, int col)
 	t_complex_num	p_derivative;
 	t_complex_num	one;
 	int				i;
-	
+
 	z.real = ft_pixel_to_coord(col, fractol, 1);
 	z.imaginary = ft_pixel_to_coord(row, fractol, 0);
 	one.real = 1;

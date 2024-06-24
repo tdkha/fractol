@@ -94,6 +94,7 @@ long double	ft_pixel_to_coord(
 				long double value,
 				t_fractol *fractol,
 				int is_x_axis);
+
 /*+------------------------------------------------------------+*/
 //	FRACTOL STRUCT FUNCTIONS
 /*+------------------------------------------------------------+*/
