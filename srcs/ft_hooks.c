@@ -15,6 +15,7 @@
 int	ft_loop_hook(void *void_struct)
 {
 	ft_display((t_fractol *) void_struct);
+	return (0);
 }
 
 static inline void	ft_arrow_keyboard_handler(int keycode, t_fractol *fractol)
@@ -61,6 +62,7 @@ int	ft_keyboard_hook(int keycode, void *void_struct)
 	if (keycode == KEY_O)
 		fractol->iteration *= (1 - fractol->change_rate);
 	ft_arrow_keyboard_handler(keycode, fractol);
+	return (0);
 }
 
 /**
@@ -91,7 +93,8 @@ static inline void	ft_mouse_scroll_handler(
 		zoom_factor = 1 + fractol->change_rate;
 	else if (keycode == MOUSE_SCROLL_UP)
 		zoom_factor = 1 - fractol->change_rate;
-	fractol->zoom_ratio = zoom_factor;
+	fractol->zoom_ratio *= zoom_factor;
+	printf("New zoom ration is : %Lf\n", fractol->zoom_ratio);
 	new_width = (fractol->max_x - fractol->min_x) * zoom_factor;
 	new_height = (fractol->max_y - fractol->min_y) * zoom_factor;
 	fractol->min_x = s_mouse_x - (s_mouse_x - fractol->min_x) * zoom_factor;

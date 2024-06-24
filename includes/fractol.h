@@ -67,7 +67,7 @@ typedef struct s_fractol
 	void			*window;
 	t_set_type		type;
 	int				iteration;
-	int				zoom_ratio;
+	long double		zoom_ratio;
 	long double		change_rate;
 	long double		min_x;
 	long double		max_x;

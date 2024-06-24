@@ -26,6 +26,7 @@ inline int	ft_set_execute(t_fractol *fractol, int row, int col)
 	{
 		return (ft_set_newton(fractol, row, col));
 	}
+	return (-1);
 }
 
 inline void	ft_guidance(void)

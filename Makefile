@@ -14,7 +14,7 @@ NAME		=	fractol
 
 CC			=	cc
 
-CFLAGS		=	-Ofast -flto -I ./includes
+CFLAGS		=	-Wall -Wextra -Werror -Ofast -flto -I ./includes
 MLX			=	srcs/mlx_linux
 LIBFT		=	srcs/libft
 
@@ -80,7 +80,6 @@ $(NAME): $(OFILES) .libft
 	@touch .bonus
 	${MAKE} -C ${MLX}
 	$(CC) $(CFLAGS) $(B_OFILES) -L${LIBFT} -lft -L${MLX} -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
-	
 	@rm -f .mandatory
 
 clean:

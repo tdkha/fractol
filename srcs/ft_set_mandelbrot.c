@@ -21,7 +21,7 @@
  * arr[3] = y2 = y_squared;
  *----------------------------------------------
  */
-static inline int	ft_set_var_mandelbrot(long double *arr)
+static inline void	ft_set_var_mandelbrot(long double *arr)
 {
 	arr[0] = 0.0;
 	arr[1] = 0.0;

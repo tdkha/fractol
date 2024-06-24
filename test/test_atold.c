@@ -15,7 +15,7 @@
 
 int	main(int ac, char **av)
 {
-	char *str = "1234.567";
+	char *str = "    1234.567   ";
 	long double res = ft_atold(str);
 	
 	printf("+---------------------------------------------+\n" 
