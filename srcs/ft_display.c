@@ -6,23 +6,11 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:54:06 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/24 10:17:17 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/24 11:17:57 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
-static inline int	ft_get_set(t_fractol *fractol, int row, int col)
-{
-	if (fractol->type == MANDELBROT)
-	{
-		return (ft_set_mandelbrot(fractol, row, col, 0));
-	}
-	else if (fractol->type == JULIA)
-	{
-		return (ft_set_julia(fractol, row, col));
-	}
-}
 
 void	ft_display(t_fractol *fractol)
 {
@@ -38,7 +26,7 @@ void	ft_display(t_fractol *fractol)
 		col = 0;
 		while (col < WINDOW_W)
 		{
-			res = ft_get_set(fractol, row, col);
+			res = ft_set_execute(fractol, row, col);
 			color = ft_rand_color_map(res, fractol);
 			ft_mlx_pixel_put(&fractol->img_struct, col, row, color);
 			col++;

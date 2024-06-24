@@ -6,7 +6,7 @@
 #    By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/14 19:34:49 by ktieu             #+#    #+#              #
-#    Updated: 2024/06/23 21:26:54 by ktieu            ###   ########.fr        #
+#    Updated: 2024/06/24 11:29:22 by ktieu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ SRCS		=	./srcs/main.c \
 				./srcs/ft_close.c  \
 				./srcs/ft_frand.c  \
 				./srcs/ft_complex.c \
+				./srcs/ft_complex_extent.c \
 				./srcs/ft_display.c \
+				./srcs/ft_set_utils.c \
 				./srcs/ft_set_mandelbrot.c \
 				./srcs/ft_set_julia.c \
 				./srcs/ft_hooks.c \
@@ -39,7 +41,10 @@ B_SRCS		=	./srcs/main.c \
 				./srcs/ft_close.c  \
 				./srcs/ft_frand.c  \
 				./srcs/ft_complex.c \
+				./srcs/ft_complex_extent.c \
 				./srcs/ft_display.c \
+				./srcs/ft_set_bonus.c \
+				./srcs/ft_set_utils_bonus.c \
 				./srcs/ft_set_mandelbrot.c \
 				./srcs/ft_set_julia.c \
 				./srcs/ft_hooks.c \
@@ -72,9 +77,10 @@ $(NAME): $(OFILES) .libft
 	@rm -f .bonus
 
 .bonus: $(B_OFILES) .libft
-	${MAKE} -C ${MLX}
-	$(CC) $(CFLAGS) -o $(NAME) $(B_OFILES) $(LIBS) -flto
 	@touch .bonus
+	${MAKE} -C ${MLX}
+	$(CC) $(B_OFILES) -L${LIBFT} -lft -L${MLX} -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
+	
 	@rm -f .mandatory
 
 clean:

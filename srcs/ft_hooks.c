@@ -6,7 +6,7 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 18:18:27 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/23 17:07:58 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/24 11:35:03 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,28 @@ int	ft_loop_hook(void *void_struct)
 
 static inline void	ft_arrow_keyboard_handler(int keycode, t_fractol *fractol)
 {
+	long double	change_rate;
+
+	change_rate = fractol->change_rate;
 	if (keycode == KEY_DOWN || keycode == KEY_S)
 	{
-		fractol->min_y += (fractol->zoom_ratio * 0.1);
-		fractol->max_y += (fractol->zoom_ratio * 0.1);
+		fractol->min_y += (fractol->zoom_ratio * change_rate);
+		fractol->max_y += (fractol->zoom_ratio * change_rate);
 	}
 	else if (keycode == KEY_UP || keycode == KEY_W)
 	{
-		fractol->min_y -= (fractol->zoom_ratio * 0.1);
-		fractol->max_y -= (fractol->zoom_ratio * 0.1);
+		fractol->min_y -= (fractol->zoom_ratio * change_rate);
+		fractol->max_y -= (fractol->zoom_ratio * change_rate);
 	}
 	else if (keycode == KEY_RIGHT || keycode == KEY_D)
 	{
-		fractol->min_x += (fractol->zoom_ratio * 0.1);
-		fractol->max_x += (fractol->zoom_ratio * 0.1);
+		fractol->min_x += (fractol->zoom_ratio * change_rate);
+		fractol->max_x += (fractol->zoom_ratio * change_rate);
 	}
 	else if (keycode == KEY_LEFT || keycode == KEY_A)
 	{
-		fractol->min_x -= (fractol->zoom_ratio * 0.1);
-		fractol->max_x -= (fractol->zoom_ratio * 0.1);
+		fractol->min_x -= (fractol->zoom_ratio * change_rate);
+		fractol->max_x -= (fractol->zoom_ratio * change_rate);
 	}
 }
 
@@ -54,9 +57,9 @@ int	ft_keyboard_hook(int keycode, void *void_struct)
 	if (keycode == KEY_C)
 		ft_random_colors(fractol);
 	if (keycode == KEY_I)
-		fractol->iteration *= 2;
+		fractol->iteration *= (1 + fractol->change_rate);
 	if (keycode == KEY_O)
-		fractol->iteration *= 0.5;
+		fractol->iteration *= (1 - fractol->change_rate);
 	ft_arrow_keyboard_handler(keycode, fractol);
 }
 
@@ -80,16 +83,14 @@ static inline void	ft_mouse_scroll_handler(
 	double s_mouse_x, double s_mouse_y,
 	t_fractol *fractol)
 {
-	long double	change_rate;
 	long double	new_width;
 	long double	new_height;
 	long double	zoom_factor;
 
-	change_rate = 0.2;
 	if (keycode == MOUSE_SCROLL_DOWN)
-		zoom_factor = 1 + change_rate;
+		zoom_factor = 1 + fractol->change_rate;
 	else if (keycode == MOUSE_SCROLL_UP)
-		zoom_factor = 1 - change_rate;
+		zoom_factor = 1 - fractol->change_rate;
 	new_width = (fractol->max_x - fractol->min_x) * zoom_factor;
 	new_height = (fractol->max_y - fractol->min_y) * zoom_factor;
 	fractol->min_x = s_mouse_x - (s_mouse_x - fractol->min_x) * zoom_factor;

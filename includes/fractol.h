@@ -6,7 +6,7 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:21:39 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/23 21:26:27 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/24 11:31:57 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@
 typedef enum e_set_type
 {
 	MANDELBROT,
-	JULIA
+	JULIA,
+	NEWTON
 }	t_set_type;
 
 typedef struct s_img
@@ -67,6 +68,7 @@ typedef struct s_fractol
 	t_set_type		type;
 	int				iteration;
 	int				zoom_ratio;
+	long double		change_rate;
 	long double		min_x;
 	long double		max_x;
 	long double		min_y;
@@ -82,7 +84,8 @@ typedef struct s_fractol
 /*+------------------------------------------------------------+*/
 //	HELPER
 /*+------------------------------------------------------------+*/
-
+void		ft_guidance(void);
+void		ft_define_set_type(int ac, char **av, t_fractol *fractol);
 float		ft_frand(void);
 void		ft_random_colors(t_fractol *fractol);
 int			ft_rand_color_map(int iteration, t_fractol *fractol);
@@ -114,7 +117,8 @@ int			ft_mouse_hook(
 //	SETS
 /*+------------------------------------------------------------+*/
 
+int			ft_set_execute(t_fractol *fractol, int row, int col);
 int			ft_set_mandelbrot(t_fractol *fractol, int row, int col, int iter);
 int			ft_set_julia(t_fractol *fractol, int row, int col);
-
+int			ft_set_newton(t_fractol *fractol, int row, int col);
 #endif

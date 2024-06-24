@@ -6,37 +6,11 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 23:16:13 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/24 10:17:25 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/24 11:36:04 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
-static void	ft_guidance(void)
-{
-	ft_printf("Available set: [Julia | Mandelbrot]\n");
-	ft_printf("<1>\t>Julia Argument<:\t[real number, imaginary number]\n");
-	ft_printf("<2>\t>Mandelbrot Argument<:\t[None]\n");
-	exit(1);
-}
-
-static void	ft_define_set_type(int ac, char **av, t_fractol *fractol)
-{
-	if (ac == 4 && ft_strcmp(av[1], "Julia") == 0)
-	{
-		fractol->type = JULIA;
-		fractol->julia_values.real = ft_atold(av[2]);
-		fractol->julia_values.imaginary = ft_atold(av[3]);
-	}
-	else if (ac == 2 && ft_strcmp(av[1], "Mandelbrot") == 0)
-	{
-		fractol->type = MANDELBROT;
-	}
-	else
-	{
-		ft_guidance();
-	}
-}
 
 static inline void	ft_mlx_init(t_fractol *fractol)
 {
@@ -70,5 +44,6 @@ void	ft_fractol_init(int ac, char **av, t_fractol *fractol)
 	fractol->max_y = 2;
 	fractol->iteration = 100;
 	fractol->zoom_ratio = 1;
+	fractol->change_rate = 0.2;
 	ft_random_colors(fractol);
 }
