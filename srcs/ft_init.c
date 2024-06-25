@@ -6,7 +6,7 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 23:16:13 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/24 11:36:04 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/25 17:36:00 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ static inline void	ft_mlx_init(t_fractol *fractol)
 
 void	ft_fractol_init(int ac, char **av, t_fractol *fractol)
 {
-	ft_define_set_type(ac, av, fractol);
 	fractol->mlx = NULL;
 	fractol->img_struct.img = NULL;
+	fractol->window = NULL;
+	ft_define_set_type(ac, av, fractol);
 	ft_mlx_init(fractol);
 	fractol->min_x = -2;
 	fractol->max_x = 2;

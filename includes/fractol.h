@@ -6,7 +6,7 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:21:39 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/24 11:31:57 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/25 17:33:42 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,9 @@ typedef struct s_fractol
 //	HELPER
 /*+------------------------------------------------------------+*/
 void		ft_guidance(void);
+int			ft_float_param_check(
+				char *str, int i,
+				int found_dot, int has_digits);
 void		ft_define_set_type(int ac, char **av, t_fractol *fractol);
 float		ft_frand(void);
 void		ft_random_colors(t_fractol *fractol);

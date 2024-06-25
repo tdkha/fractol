@@ -6,7 +6,7 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 18:18:27 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/24 11:35:03 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/25 16:05:35 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ static inline void	ft_mouse_scroll_handler(
 	else if (keycode == MOUSE_SCROLL_UP)
 		zoom_factor = 1 - fractol->change_rate;
 	fractol->zoom_ratio *= zoom_factor;
-	printf("New zoom ration is : %Lf\n", fractol->zoom_ratio);
 	new_width = (fractol->max_x - fractol->min_x) * zoom_factor;
 	new_height = (fractol->max_y - fractol->min_y) * zoom_factor;
 	fractol->min_x = s_mouse_x - (s_mouse_x - fractol->min_x) * zoom_factor;
