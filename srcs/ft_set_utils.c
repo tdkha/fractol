@@ -6,7 +6,7 @@
 /*   By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:20:35 by ktieu             #+#    #+#             */
-/*   Updated: 2024/06/25 17:35:27 by ktieu            ###   ########.fr       */
+/*   Updated: 2024/06/25 17:51:32 by ktieu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,9 @@ inline void	ft_guidance(void)
 	exit(1);
 }
 
-static inline int	skip_leading_characters(char *str, int skip_sign)
+static inline int	skip_leading_characters(int i, char *str, int skip_sign)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0' && ft_isdigit(str[i]))
+	while (str[i] != '\0' && ft_isspace(str[i]))
 		i++;
 	if (skip_sign == 1)
 	{
@@ -52,7 +49,7 @@ inline int	ft_float_param_check(
 	char *str, int i,
 	int found_dot, int has_digits)
 {
-	i = skip_leading_characters(str, 1);
+	i = skip_leading_characters(i, str, 1);
 	while (str[i] != '\0')
 	{
 		if (ft_isdigit(str[i]))
@@ -63,9 +60,9 @@ inline int	ft_float_param_check(
 				return (-1);
 			found_dot = 1;
 		}
-		else if (ft_isdigit(str[i]))
+		else if (ft_isspace(str[i]))
 		{
-			i = skip_leading_characters(str, 0);
+			i = skip_leading_characters(i, str, 0);
 			if (str[i] != '\0')
 				return (-1);
 			break ;
