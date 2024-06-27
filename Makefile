@@ -6,7 +6,7 @@
 #    By: ktieu <ktieu@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/14 19:34:49 by ktieu             #+#    #+#              #
-#    Updated: 2024/06/24 11:29:22 by ktieu            ###   ########.fr        #
+#    Updated: 2024/06/27 08:39:19 by ktieu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ B_OFILES	=	$(addprefix $(OBJDIR)/, $(notdir ${B_SRCS:.c=.o}))
 
 all: mandatory
 
-mandatory: $(NAME)
+mandatory: .mandatory
 
 bonus: .bonus
 
@@ -70,7 +70,7 @@ $(OBJDIR)/%.o: srcs/%.c
 	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OFILES) .libft
+.mandatory: $(OFILES) .libft
 	${MAKE} -C ${MLX}
 	$(CC) $(CFLAGS) $(OFILES) -L${LIBFT} -lft -L${MLX} -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
 	@touch .mandatory
